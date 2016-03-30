@@ -28,7 +28,7 @@
 
     <groupId>io.fabric8</groupId>
     <artifactId>spring-cloud-kubernetes-project</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>0.0.2-SNAPSHOT</version>
     <packaging>pom</packaging>
     <name>Fabric8 :: Spring Cloud Kubernetes :: Project</name>
 
@@ -93,6 +93,7 @@
         <module>spring-cloud-kubernetes-discovery</module>
         <module>spring-cloud-kubernetes-core</module>
         <module>spring-cloud-starter-kubernetes</module>
+        <module>spring-cloud-kubernetes-ribbon</module>
     </modules>
 
     <dependencyManagement>
@@ -100,12 +101,19 @@
             <!-- Own dependencies -->
             <dependency>
                 <groupId>io.fabric8</groupId>
-                <artifactId>sping-cloud-kubernetes-core</artifactId>
+                <artifactId>spring-cloud-kubernetes-core</artifactId>
                 <version>${project.version}</version>
             </dependency>
+
             <dependency>
                 <groupId>io.fabric8</groupId>
-                <artifactId>sping-cloud-kubernetes-discovery</artifactId>
+                <artifactId>spring-cloud-kubernetes-discovery</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>io.fabric8</groupId>
+                <artifactId>spring-cloud-kubernetes-ribbon</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
@@ -114,11 +122,21 @@
                 <artifactId>kubernetes-client</artifactId>
                 <version>${kubernetes-client.version}</version>
             </dependency>
+
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-netflix-dependencies</artifactId>
+                <version>${spring-cloud-netflix.version}</version>
+                <scope>import</scope>
+                <type>pom</type>
+            </dependency>
+
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-actuator</artifactId>
                 <version>${spring-boot.version}</version>
             </dependency>
+
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-autoconfigure</artifactId>

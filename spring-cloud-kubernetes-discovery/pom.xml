@@ -21,18 +21,18 @@
     <parent>
         <groupId>io.fabric8</groupId>
         <artifactId>spring-cloud-kubernetes-project</artifactId>
-        <version>0.0.1-SNAPSHOT</version>
+        <version>0.0.2-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>sping-cloud-kubernetes-discovery</artifactId>
+    <artifactId>spring-cloud-kubernetes-discovery</artifactId>
     <name>Fabric8 :: Spring Cloud Kubernetes :: Discovery</name>
 
     <dependencies>
 
         <dependency>
             <groupId>io.fabric8</groupId>
-            <artifactId>sping-cloud-kubernetes-core</artifactId>
+            <artifactId>spring-cloud-kubernetes-core</artifactId>
             <version>${project.version}</version>
         </dependency>
 
