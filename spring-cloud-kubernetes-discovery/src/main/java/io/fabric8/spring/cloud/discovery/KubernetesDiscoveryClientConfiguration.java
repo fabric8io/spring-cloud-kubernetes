@@ -19,26 +19,24 @@ package io.fabric8.spring.cloud.discovery;
 import io.fabric8.kubernetes.client.KubernetesClient;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
+@EnableConfigurationProperties(KubernetesDiscoveryProperties.class)
 @ConditionalOnProperty(value = "spring.cloud.kubernetes.discovery.enabled", matchIfMissing = true)
 public class KubernetesDiscoveryClientConfiguration {
 
     @Bean
-    public KubernetesDiscoveryProperties kubernetesDiscoveryProperties() {
-        return new KubernetesDiscoveryProperties();
-    }
-
-    @Bean
     @ConditionalOnMissingBean
     public KubernetesDiscoveryClient kubernetesDiscoveryClient(KubernetesClient client, KubernetesDiscoveryProperties properties) {
-        return new KubernetesDiscoveryClient(client, properties.getServiceName());
+        return new KubernetesDiscoveryClient(client, properties);
     }
 
     @Bean
     public KubernetesDiscoveryLifecycle kubernetesDiscoveryLifecycle(KubernetesClient client, KubernetesDiscoveryProperties properties) {
         return new KubernetesDiscoveryLifecycle(client, properties);
+
     }
 }

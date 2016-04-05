@@ -15,18 +15,26 @@
  *
  */
 
-package io.fabric8.spring.cloud.kubernetes.ribbon;
+package io.fabric8.spring.cloud.kubernetes.zipkin;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
-import java.util.Map;
+@ConfigurationProperties("spring.cloud.kubernetes.zipkin.discovery")
+public class KubernetesZipkinDiscoveryProperties {
 
-@ConfigurationProperties("ribbon")
-public class RibbonConfigurationProperties {
+    private boolean enabled = true;
+    private String serviceName = "zipkin-query-api";
 
-    private Map<String, Override>  overrides;
 
-    static class Override {
+    public boolean isEnabled() {
+        return enabled;
+    }
 
+    public void setEnabled(boolean enabled) {
+        this.enabled = enabled;
+    }
+
+    public String getServiceName() {
+        return serviceName;
     }
 }
