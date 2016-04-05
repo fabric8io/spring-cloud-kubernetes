@@ -27,41 +27,19 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>io.fabric8</groupId>
-    <artifactId>spring-cloud-kubernetes-zipkin</artifactId>
-    <name>Fabric8 :: Spring Cloud Kubernetes :: Zipkin</name>
+    <artifactId>spring-cloud-kubernetes-compat</artifactId>
+    <name>Fabric8 :: Spring Cloud Kubernetes :: Compatibility</name>
+
+    <description>Compatibility module to cover for the lack of InetUtils in older version of Spring Cloud Commons.</description>
+
 
     <dependencies>
-
         <dependency>
-            <groupId>io.fabric8</groupId>
-            <artifactId>spring-cloud-kubernetes-discovery</artifactId>
-            <version>${project.version}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-autoconfigure</artifactId>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.16.8</version>
+            <scope>compile</scope>
             <optional>true</optional>
         </dependency>
-
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-commons</artifactId>
-            <optional>true</optional>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-context</artifactId>
-            <optional>true</optional>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-sleuth-zipkin</artifactId>
-            <optional>true</optional>
-        </dependency>
-
     </dependencies>
-
 </project>
