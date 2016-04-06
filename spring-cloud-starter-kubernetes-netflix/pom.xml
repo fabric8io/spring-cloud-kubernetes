@@ -27,19 +27,24 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>io.fabric8</groupId>
-    <artifactId>spring-cloud-kubernetes-compat</artifactId>
-    <name>Fabric8 :: Spring Cloud Kubernetes :: Compatibility</name>
-
-    <description>Compatibility module to cover for the lack of InetUtils in older version of Spring Cloud Commons.</description>
-
+    <artifactId>spring-cloud-starter-kubernetes-netflix</artifactId>
+    <name>Fabric8 :: Spring Cloud Kubernetes :: Starter :: Netflix</name>
 
     <dependencies>
         <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <version>1.16.8</version>
-            <scope>compile</scope>
-            <optional>true</optional>
+            <groupId>io.fabric8</groupId>
+            <artifactId>spring-cloud-kubernetes-core</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>io.fabric8</groupId>
+            <artifactId>spring-cloud-kubernetes-discovery</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>io.fabric8</groupId>
+            <artifactId>spring-cloud-kubernetes-ribbon</artifactId>
         </dependency>
     </dependencies>
+
 </project>

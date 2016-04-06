@@ -21,7 +21,7 @@
     <parent>
         <artifactId>spring-cloud-kubernetes-project</artifactId>
         <groupId>io.fabric8</groupId>
-        <version>0.0.4-SNAPSHOT</version>
+        <version>0.0.5-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
@@ -38,21 +38,6 @@
         <dependency>
             <groupId>io.fabric8</groupId>
             <artifactId>spring-cloud-kubernetes-discovery</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>io.fabric8</groupId>
-            <artifactId>spring-cloud-kubernetes-hystrix</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>io.fabric8</groupId>
-            <artifactId>spring-cloud-kubernetes-ribbon</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>io.fabric8</groupId>
-            <artifactId>spring-cloud-kubernetes-zipkin</artifactId>
         </dependency>
     </dependencies>
 
