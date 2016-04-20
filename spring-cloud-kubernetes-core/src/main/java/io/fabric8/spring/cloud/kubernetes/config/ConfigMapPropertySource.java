@@ -19,20 +19,26 @@ package io.fabric8.spring.cloud.kubernetes.config;
 
 import io.fabric8.kubernetes.api.model.ConfigMap;
 import io.fabric8.kubernetes.client.KubernetesClient;
+import org.springframework.beans.factory.config.YamlPropertiesFactoryBean;
 import org.springframework.core.env.MapPropertySource;
+import org.springframework.core.io.ByteArrayResource;
 
-import java.util.Collections;
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
+import java.util.HashMap;
 import java.util.Map;
+import java.util.Properties;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 
 public class ConfigMapPropertySource extends MapPropertySource {
 
+    private static final String APPLICATION_YML = "application.yml";
+    private static final String APPLICATION_YAML = "application.yaml";
+    private static final String APPLICATION_PROPERTIES = "application.properties";
+
     private static final String PREFIX = "configmap";
     private static final String SEPARATOR = ".";
-
-    private final KubernetesClient client;
-    private final String name;
-    private final String namespace;
 
     public ConfigMapPropertySource(KubernetesClient client, String name) {
         this(client, name, null);
@@ -40,9 +46,6 @@ public class ConfigMapPropertySource extends MapPropertySource {
 
     public ConfigMapPropertySource(KubernetesClient client, String name, String namespace) {
         super(getName(client, name, namespace), asObjectMap(getData(client, name, namespace)));
-        this.client = client;
-        this.name = name;
-        this.namespace = namespace;
     }
 
     private static String getName(KubernetesClient client, String name, String namespace) {
@@ -52,11 +55,25 @@ public class ConfigMapPropertySource extends MapPropertySource {
     }
 
     private static Map<String, String> getData(KubernetesClient client, String name, String namespace) {
+        Map<String, String> result = new HashMap<>();
         ConfigMap map = namespace == null || namespace.isEmpty()
                 ? client.configMaps().withName(name).get()
                 : client.configMaps().inNamespace(namespace).withName(name).get();
 
-        return map != null ? map.getData() : Collections.emptyMap();
+        if (map != null) {
+            for (Map.Entry<String, String> entry : map.getData().entrySet()) {
+                String key = entry.getKey();
+                String value = entry.getValue();
+                if (key.equals(APPLICATION_YAML) || key.equals(APPLICATION_YML)) {
+                    result.putAll(YAML_TO_PROPETIES.andThen(PROPERTIES_TO_MAP).apply(value));
+                } else if (key.equals(APPLICATION_PROPERTIES)) {
+                    result.putAll(KEY_VALUE_TO_PROPERTIES.andThen(PROPERTIES_TO_MAP).apply(value));
+                } else {
+                    result.put(key, value);
+                }
+            }
+        }
+        return result;
     }
 
     private static Map<String, Object> asObjectMap(Map<String, String> source) {
@@ -64,4 +81,28 @@ public class ConfigMapPropertySource extends MapPropertySource {
                 .stream()
                 .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
     }
+
+
+    private static final Function<String, Properties> YAML_TO_PROPETIES = s -> {
+        YamlPropertiesFactoryBean yamlFactory = new YamlPropertiesFactoryBean();
+        yamlFactory.setResources(new ByteArrayResource(s.getBytes()));
+        return yamlFactory.getObject();
+    };
+
+    private static final Function<String, Properties> KEY_VALUE_TO_PROPERTIES = s -> {
+        Properties properties = new Properties();
+        try {
+            properties.load(new ByteArrayInputStream(s.getBytes()));
+            return properties;
+        } catch (IOException e) {
+            throw new IllegalArgumentException();
+        }
+    };
+
+    private static final Function<Properties, Map<String,String>> PROPERTIES_TO_MAP = p -> p.entrySet().stream()
+            .collect(Collectors.toMap(
+                    e -> String.valueOf(e.getKey()),
+                    e -> String.valueOf(e.getValue())));
+
+
 }
