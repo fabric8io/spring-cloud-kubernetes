@@ -1,4 +1,8 @@
-## Spring Cloud Kubernetes
+## This project has moved to the [Spring Cloud Incubator](https://github.com/spring-cloud-incubator/spring-cloud-kubernetes). 
+
+# Spring Cloud Kubernetes
+
+
 
 [Spring Cloud](http://projects.spring.io/spring-cloud/) integration with [Kubernetes](http://kubernetes.io/)
 
