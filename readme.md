@@ -38,7 +38,7 @@ This is something that you get for free just by adding the following dependency 
 <dependency>
     <groupId>io.fabric8</groupId>
     <artifactId>spring-cloud-starter-kubernetes</artifactId>
-    <version>${latest.version></version>
+    <version>${latest.version}</version>
 </dependency>
 ```
 
