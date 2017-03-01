@@ -77,14 +77,14 @@
     <properties>
         <!-- Dependency Versions -->
         <commons-logging.version>1.2</commons-logging.version>
-        <kubernetes-client.version>1.4.14</kubernetes-client.version>
-        <mockwebserver.version>0.0.4</mockwebserver.version>
+        <kubernetes-client.version>2.2.0</kubernetes-client.version>
+        <mockwebserver.version>0.0.12</mockwebserver.version>
         <lombok.version>1.16.10</lombok.version>
         <hibernate-validator.version>5.2.4.Final</hibernate-validator.version>
         <servlet-api.version>2.5</servlet-api.version>
-        <spock-spring.version>1.0-groovy-2.3</spock-spring.version>
-        <spring-boot.version>1.4.1.RELEASE</spring-boot.version>
-        <spring-cloud.version>Brixton.SR6</spring-cloud.version>
+        <spock.version>1.1-groovy-2.4-rc-3</spock.version>
+        <spring-boot.version>1.5.1.RELEASE</spring-boot.version>
+        <spring-cloud.version>Camden.SR5</spring-cloud.version>
         <spring.version>4.3.3.RELEASE</spring.version>
         <junit.version>4.12</junit.version>
 
@@ -229,8 +229,14 @@
 
             <dependency>
                 <groupId>org.spockframework</groupId>
+                <artifactId>spock-core</artifactId>
+                <version>${spock.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.spockframework</groupId>
                 <artifactId>spock-spring</artifactId>
-                <version>${spock-spring.version}</version>
+                <version>${spock.version}</version>
             </dependency>
 
             <dependency>

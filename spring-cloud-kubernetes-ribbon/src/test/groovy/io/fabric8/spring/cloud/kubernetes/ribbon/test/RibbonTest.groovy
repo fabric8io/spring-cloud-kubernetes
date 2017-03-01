@@ -24,22 +24,19 @@ import io.fabric8.kubernetes.server.mock.KubernetesMockServer
 import io.fabric8.spring.cloud.kubernetes.ribbon.KubernetesRibbonClientConfiguration
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration
-import org.springframework.boot.test.IntegrationTest
-import org.springframework.boot.test.SpringApplicationConfiguration
+import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.cloud.client.loadbalancer.LoadBalancerInterceptor
 import org.springframework.cloud.netflix.ribbon.RibbonClient
 import org.springframework.web.client.RestTemplate
 import spock.lang.Specification
 
 @EnableAutoConfiguration
-@SpringApplicationConfiguration(TestApplication.class)
-@IntegrationTest(
-        [
-                "spring.application.name=testapp",
-                "spring.cloud.kubernetes.client.namespace=testns",
-                "spring.cloud.kubernetes.client.trustCerts=true",
-                "spring.cloud.kubernetes.config.namespace=testns"
-        ])
+@SpringBootTest(classes = [TestApplication.class],
+                properties = [
+                    "spring.application.name=testapp",
+                    "spring.cloud.kubernetes.client.namespace=testns",
+                    "spring.cloud.kubernetes.client.trustCerts=true",
+                    "spring.cloud.kubernetes.config.namespace=testns"])
 @RibbonClient(name = "testapp", configuration = KubernetesRibbonClientConfiguration.class)
 class RibbonTest extends Specification {
 
