@@ -125,7 +125,7 @@ If the secrets are found theirs data is made available to the application.
 
 **Example:**
 
-Let's assume that we have a spring boot application named ``demo`` that uses properties to read its ActiveMQ and PostreSQL configuration.
+Let's assume that we have a spring boot application named ``demo`` that uses properties to read its ActiveMQ and PostgreSQL configuration.
 
 - `amq.username`
 - `amq.password`
@@ -148,7 +148,7 @@ This can be externalized to Secrets in yaml format:
       amq.password: MWYyZDFlMmU2N2Rm
     ```    
 
-- **PostreSQL**
+- **PostgreSQL**
     ```yaml
     apiVersion: v1
     kind: Secret
