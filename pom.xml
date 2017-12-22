@@ -28,7 +28,7 @@
 
     <groupId>io.fabric8</groupId>
     <artifactId>spring-cloud-kubernetes-project</artifactId>
-    <version>0.1.5</version>
+    <version>0.1.5.fuse-000018</version>
     <packaging>pom</packaging>
     <name>Fabric8 :: Spring Cloud Kubernetes :: Project</name>
 
@@ -77,7 +77,7 @@
     <properties>
         <!-- Dependency Versions -->
         <commons-logging.version>1.2</commons-logging.version>
-        <kubernetes-client.version>2.2.0</kubernetes-client.version>
+        <kubernetes-client.version>2.6.3.fuse-000018</kubernetes-client.version>
         <mockwebserver.version>0.0.12</mockwebserver.version>
         <lombok.version>1.16.10</lombok.version>
         <hibernate-validator.version>5.2.4.Final</hibernate-validator.version>
@@ -98,19 +98,8 @@
     </properties>
 
     <modules>
-        <module>spring-cloud-kubernetes-discovery</module>
-        <module>spring-cloud-kubernetes-core</module>
-        <module>spring-cloud-starter-kubernetes</module>
-        <module>spring-cloud-kubernetes-ribbon</module>
-        <module>spring-cloud-kubernetes-zipkin</module>
-        <module>spring-cloud-kubernetes-compat</module>
-        <module>spring-cloud-kubernetes-hystrix</module>
-        <module>spring-cloud-kubernetes-archaius</module>
-        <module>spring-cloud-starter-kubernetes-netflix</module>
-        <module>spring-cloud-starter-kubernetes-zipkin</module>
-        <module>spring-cloud-starter-kubernetes-all</module>
-        <module>spring-cloud-kubernetes-examples</module>
-    </modules>
+    <module>spring-cloud-kubernetes-core</module>
+  </modules>
 
     <dependencyManagement>
         <dependencies>
