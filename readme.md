@@ -17,7 +17,7 @@
   -   [Secrets PropertySource](#secrets-propertysource)
   -   [PropertySource Reload](#propertysource-reload)
 -   [Pod Health Indicator](#pod-health-indicator)
--   [Transparency](#transparency) *(its transparent wether the code runs in or outside of Kubernetes)*
+-   [Transparency](#transparency) *(it is transparent whether the code runs in or outside of Kubernetes)*
 -   [Kubernetes Profile Autoconfiguration](#kubernetes-profile-autoconfiguration)
 -   [Ribbon discovery in Kubernetes](#ribbon-discovery-in-kubernetes)
 -   [Zipkin discovery in Kubernetes](#zipkin-discovery-in-kubernetes)
@@ -193,7 +193,7 @@ You can select the Secrets to consume in a number of ways:
 | spring.cloud.kubernetes.secrets.enabled   | Boolean | true                       | Enable Secrets PropertySource
 | spring.cloud.kubernetes.secrets.name      | String  | ${spring.application.name} | Sets the name of the secret to lookup
 | spring.cloud.kubernetes.secrets.labels    | Map     | null                       | Sets the labels used to lookup secrets
-| spring.cloud.kubernetes.secrets.paths     | List    | null                       | Sets the paths where secrets are mounted /example 1)
+| spring.cloud.kubernetes.secrets.paths     | List    | null                       | Sets the paths where secrets are mounted (example 1)
 | spring.cloud.kubernetes.secrets.enableApi | Boolean | false                      | Enable/Disable consuming secrets via APIs (examples 2 and 3)
 
 **Notes:**
