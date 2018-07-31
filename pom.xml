@@ -28,7 +28,7 @@
 
     <groupId>io.fabric8</groupId>
     <artifactId>spring-cloud-kubernetes-project</artifactId>
-    <version>0.1.6</version>
+    <version>0.1.6.fuse-710013</version>
     <packaging>pom</packaging>
     <name>Fabric8 :: Spring Cloud Kubernetes :: Project</name>
 
@@ -77,15 +77,15 @@
     <properties>
         <!-- Dependency Versions -->
         <commons-logging.version>1.2</commons-logging.version>
-        <kubernetes-client.version>2.2.0</kubernetes-client.version>
+        <kubernetes-client.version>3.0.3.fuse-710013</kubernetes-client.version>
         <mockwebserver.version>0.0.12</mockwebserver.version>
         <lombok.version>1.16.10</lombok.version>
         <hibernate-validator.version>5.2.4.Final</hibernate-validator.version>
         <servlet-api.version>2.5</servlet-api.version>
         <spock.version>1.1-groovy-2.4-rc-3</spock.version>
-        <spring-boot.version>1.5.1.RELEASE</spring-boot.version>
+        <spring-boot.version>1.5.13.RELEASE</spring-boot.version>
         <spring-cloud.version>Camden.SR5</spring-cloud.version>
-        <spring.version>4.3.3.RELEASE</spring.version>
+        <spring.version>4.3.16.RELEASE</spring.version>
         <junit.version>4.12</junit.version>
 
         <!-- Maven Plugin Versions -->
@@ -98,19 +98,8 @@
     </properties>
 
     <modules>
-        <module>spring-cloud-kubernetes-discovery</module>
-        <module>spring-cloud-kubernetes-core</module>
-        <module>spring-cloud-starter-kubernetes</module>
-        <module>spring-cloud-kubernetes-ribbon</module>
-        <module>spring-cloud-kubernetes-zipkin</module>
-        <module>spring-cloud-kubernetes-compat</module>
-        <module>spring-cloud-kubernetes-hystrix</module>
-        <module>spring-cloud-kubernetes-archaius</module>
-        <module>spring-cloud-starter-kubernetes-netflix</module>
-        <module>spring-cloud-starter-kubernetes-zipkin</module>
-        <module>spring-cloud-starter-kubernetes-all</module>
-        <module>spring-cloud-kubernetes-examples</module>
-    </modules>
+    <module>spring-cloud-kubernetes-core</module>
+  </modules>
 
     <dependencyManagement>
         <dependencies>
