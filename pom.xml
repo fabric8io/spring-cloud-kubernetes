@@ -85,7 +85,7 @@
         <spock.version>1.1-groovy-2.4-rc-3</spock.version>
         <spring-boot.version>1.5.1.RELEASE</spring-boot.version>
         <spring-cloud.version>Camden.SR5</spring-cloud.version>
-        <spring.version>4.3.3.RELEASE</spring.version>
+        <spring.version>6.0.0</spring.version>
         <junit.version>4.12</junit.version>
 
         <!-- Maven Plugin Versions -->
